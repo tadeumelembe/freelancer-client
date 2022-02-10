@@ -1,10 +1,10 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
 
-export default function Header(params) {
+export const Header= ({theme, toggleTheme}) => {
     return (
         <div>
-            <Navbar style={{boxShadow: "0px 0px 5px #ededed"}} collapseOnSelect expand="lg" bg="white" variant="dark">
+            <Navbar className='header' collapseOnSelect expand="lg" variant="dark">
                 <Container>
                     <Navbar.Brand className="text-black" href="#home">Phandar</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -25,6 +25,9 @@ export default function Header(params) {
                             <Nav.Link eventKey={2}  style={{color:'#000'}} href="#memes">
                                 Dank memes
                             </Nav.Link>
+                        </Nav>
+                        <Nav>
+                           <button onClick={toggleTheme}>Dark</button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

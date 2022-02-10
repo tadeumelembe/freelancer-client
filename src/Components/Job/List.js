@@ -86,20 +86,14 @@ export default function List(params) {
                 {jobList.map((item, index) => {
                     return (
 
-                        <Link to={`${index}`} style={{ textDecoration: 'none', color: '#000', textDecorationLine: 'none' }}>
+                        <Link key={index} to={`${index}`} style={{ textDecoration: 'none', color: '#000', textDecorationLine: 'none' }}>
                             <div key={index} className="col-12">
 
                                 <div className="row">
                                     <div className="col-12 col-md-12">
-                                        <Link
-                                            onMouseOut={MouseOutTitle}
-                                            onMouseOver={MouseOverTitle}
-                                            to={`details`} style={{ textDecoration: 'none', color: '#000', textDecorationLine: 'none' }}>
-
                                             <h5 style={{ fontSize: 16, fontWeight: 700, color: COLORS.primary }}>
                                                 {item.title}
                                             </h5>
-                                        </Link>
                                     </div>
                                     <div className="col-12">
                                         <h5 style={{ fontSize: 15, fontWeight: 700, color: COLORS.secondary }}>
