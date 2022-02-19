@@ -1,33 +1,90 @@
-import React from 'react'
-import { Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react'
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { DarkModeContext } from './Context/DarkModeContext';
+import Switch from "@mui/material/Switch";
+import { styled } from "@mui/material/styles";
 
-export const Header= ({theme, toggleTheme}) => {
+
+const AntSwitch = styled(Switch)(({ theme }) => ({
+    width: 28,
+    height: 16,
+    padding: 0,
+    display: "flex",
+    "&:active": {
+        "& .MuiSwitch-thumb": {
+            width: 15
+        },
+        "& .MuiSwitch-switchBase.Mui-checked": {
+            transform: "translateX(9px)"
+        }
+    },
+    "& .MuiSwitch-switchBase": {
+        padding: 2,
+        "&.Mui-checked": {
+            transform: "translateX(12px)",
+            color: "#fff",
+            "& + .MuiSwitch-track": {
+                opacity: 1,
+                backgroundColor: theme.palette.mode === "dark" ? "#177ddc" : "#1890ff"
+            }
+        }
+    },
+    "& .MuiSwitch-thumb": {
+        boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
+        width: 12,
+        height: 12,
+        borderRadius: 6,
+        transition: theme.transitions.create(["width"], {
+            duration: 200
+        })
+    }
+}));
+
+export const Header = () => {
+    const { theme, toggleTheme } = useContext(DarkModeContext)
+    const [ checked, setChecked ] = useState(false)
+
+    useEffect(() => {
+
+        if (theme === 'light') {
+            setChecked(false)
+        } else {
+            setChecked(true)
+        }   
+
+      }, [theme])
+
     return (
         <div>
-            <Navbar className='header' collapseOnSelect expand="lg" variant="dark">
+            <Navbar className='header' collapseOnSelect expand="lg">
                 <Container>
-                    <Navbar.Brand className="text-black" href="#home">Phandar</Navbar.Brand>
+                    <Navbar.Brand href="#home">Phandar</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link  style={{color:'#000'}} href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing"  style={{color:'#000'}}>Pricing</Nav.Link>
+                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link href="#pricing" >Pricing</Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1"  style={{color:'#000'}}>Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2"  style={{color:'#000'}}>Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3"  style={{color:'#000'}}>Something</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" >Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" >Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3" >Something</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4"  style={{color:'#000'}}>Separated link</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link  style={{color:'#000'}} href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2}  style={{color:'#000'}} href="#memes">
+                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link eventKey={2} href="#memes">
                                 Dank memes
                             </Nav.Link>
                         </Nav>
                         <Nav>
-                           <button onClick={toggleTheme}>Dark</button>
+                            
+                                <AntSwitch
+                                    checked={checked} onChange={toggleTheme}
+                                    inputProps={{ "aria-label": "ant design" }}
+                                />
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

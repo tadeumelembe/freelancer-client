@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-import Box, { BoxProps } from '@mui/material/Box';
+import Box from '@mui/material/Box';
 
 export default function List(params) {
 
@@ -73,25 +73,28 @@ export default function List(params) {
         },
     ]
 
-    function MouseOverTitle(event) {
-        event.target.style.textDecoration = 'underline';
+    function MouseOverTitle(el) {
+      //event.target.style.textDecoration = 'underline';
+      document.getElementsByClassName('jobTitle')[el].style.textDecoration = 'underline';
+
     }
-    function MouseOutTitle(event) {
-        event.target.style.textDecoration = 'none';
+    function MouseOutTitle(el) {
+        //event.target.style.textDecoration = 'none';
+        document.getElementsByClassName('jobTitle')[el].style.textDecoration = 'none';
     }
 
     return (
-        <div>
+        <div className='card col-12'>
             <div className="row p-3">
                 {jobList.map((item, index) => {
                     return (
 
-                        <Link key={index} to={`${index}`} style={{ textDecoration: 'none', color: '#000', textDecorationLine: 'none' }}>
+                        <Link onMouseOver={() => MouseOverTitle(index)} onMouseOut={() => MouseOutTitle(index)} key={index} to={`${index}`} style={{ textDecoration: 'none', color: '#000', textDecorationLine: 'none' }}>
                             <div key={index} className="col-12">
 
                                 <div className="row">
                                     <div className="col-12 col-md-12">
-                                            <h5 style={{ fontSize: 16, fontWeight: 700, color: COLORS.primary }}>
+                                            <h5 className='jobTitle' style={{ fontSize: 16, fontWeight: 700}}>
                                                 {item.title}
                                             </h5>
                                     </div>
@@ -103,8 +106,8 @@ export default function List(params) {
                                 </div>
 
                                 <div style={{ display: 'inline' }}>
-                                    <p className="mr-2" style={{ fontSize: 14, display: 'inline' }}><span style={{ color: '#2a2a2a', fontWeight: 500 }}>Publicado: </span><span style={{ color: COLORS.secondary, fontWeight: 500 }}>3 dias</span>, </p>
-                                    <p style={{ fontSize: 14, display: 'inline' }}><span style={{ color: '#2a2a2a', fontWeight: 500 }}> Propostas: </span> <span style={{ color: COLORS.secondary, fontWeight: 500 }}>3</span></p>
+                                    <p className="mr-2" style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}>Publicado: </span><span style={{ color: COLORS.secondary, fontWeight: 500 }}>3 dias</span>, </p>
+                                    <p style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}> Propostas: </span> <span style={{ color: COLORS.secondary, fontWeight: 500 }}>3</span></p>
                                 </div>
                                 <p style={{ fontSize: 14, paddingTop: 10 }}>
                                     {item.description}

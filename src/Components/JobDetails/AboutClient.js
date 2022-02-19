@@ -1,16 +1,11 @@
 import Rating from '@mui/material/Rating';
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import { deepOrange, deepPurple } from '@mui/material/colors';
 
 
 const MainDiv = styled.div`
     width:100%;
-    text-align: center;
-    align-content:center;
-    justify-content:center;
-    align-items:center;
 `;
 
 export default function AboutClient() {
@@ -27,27 +22,33 @@ export default function AboutClient() {
 
     return (
         <>
-        <MainDiv>
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    p: 1,
-                    m: 1,
-                    bgcolor: 'background.paper',
-                    borderRadius: 1,
-                }}
-            >
-                <Avatar sx={{ bgcolor:'#64b5f6' }}   {...stringAvatar('Tadeu Melembe')} readOnly />
+            <MainDiv>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'start',
+                        pt: 1,
+                        mb: 2,
+                        bgcolor: '#00000000',
+                        borderRadius: 1,
+                    }}
+                >
+                    <Avatar sx={{ bgcolor: '#64b5f6',fontSize: 18   ,fontWeight: 590,letterSpacing:0.2 }}   {...stringAvatar('Tadeu Melembe')} readOnly />
+                    <Box
+                        sx={{
+                            pl:1.2
+                        }}
+                    >
+                        <h5 id="client-name" style={{ fontSize: 16, fonteight: 500, marginBottom:2, letterSpacing: 0.3 }}>Tadeu Melembe</h5>
+                        <Rating size="small" name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                    </Box>
 
-            </Box>
-            <h5 style={{fontSize:14, fonteight:500,letterSpacing:0.3}}>Tadeu Melembe</h5>
-            <Rating size="small"  name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+                </Box>
 
-        </MainDiv>
-        <h6 style={{fontSize:12}}>Location: <span>Maputo</span></h6>
-        <h6 style={{fontSize:12}}>Location: <span>Maputo</span></h6>
-        <h6 style={{fontSize:12}}>Location: <span>Maputo</span></h6>
+
+            </MainDiv>
+            <h6 style={{ fontSize: 13 }}>Location: <span>Maputo</span></h6>
         </>
 
     )

@@ -168,7 +168,7 @@ export default function JobDetails(params) {
                             {Object.values(jobList[jobId].skills).map((item, index) => {
                                 return (
                                     <div className="mr-1" key={index} style={{ display: 'inline', marginRight: 5 }}>
-                                        <span className="btn" style={{ color: '#000', backgroundColor: '#d3d3d3', borderRadius: 5, fontWeight: 580, letterSpacing: 0.4, fontSize: 11, lineHeight: 0.7 }}>
+                                        <span className="btn skillsCard" style={{ borderRadius: 5, fontWeight: 580, letterSpacing: 0.4, fontSize: 11, lineHeight: 0.7 }}>
                                             {item}
                                         </span>
                                     </div>
