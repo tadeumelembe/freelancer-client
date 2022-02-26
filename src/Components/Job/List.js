@@ -99,15 +99,15 @@ export default function List(params) {
                                             </h5>
                                     </div>
                                     <div className="col-12">
-                                        <h5 style={{ fontSize: 15, fontWeight: 700, color: COLORS.secondary }}>
+                                        <h5 className='secondary-color' style={{ fontSize: 15, fontWeight: 700 }}>
                                           20,000 - {item.price} MT
                                         </h5>
                                     </div>
                                 </div>
 
                                 <div style={{ display: 'inline' }}>
-                                    <p className="mr-2" style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}>Publicado: </span><span style={{ color: COLORS.secondary, fontWeight: 500 }}>3 dias</span>, </p>
-                                    <p style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}> Propostas: </span> <span style={{ color: COLORS.secondary, fontWeight: 500 }}>3</span></p>
+                                    <p className="mr-2" style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}>Publicado: </span><span className='secondary-color' style={{ fontWeight: 500 }}>3 dias</span>, </p>
+                                    <p style={{ fontSize: 14, display: 'inline' }}><span style={{ fontWeight: 500 }}> Propostas: </span> <span className='secondary-color' style={{ fontWeight: 500 }}>3</span></p>
                                 </div>
                                 <p style={{ fontSize: 14, paddingTop: 10 }}>
                                     {item.description}

@@ -105,9 +105,9 @@ export default function JobDetails(params) {
                 <div className='col-lg-8'>
                     <div className="card" style={{ minHeight: '100vh', border: 'none', marginTop: 1 }}>
                         <div className="p-4">
-                            <h3 style={{ fontWeight: 450, fontSize: 22 }}>{jobList[jobId].title}</h3>
+                            <h3 className='jobTitle' style={{ fontWeight: 450, fontSize: 22 }}>{jobList[jobId].title}</h3>
                             <p style={{ fontSize: 12, fontWeight: 450, color: '#545956', marginTop: -8 }}>45 minutes ago</p>
-                            <h5 style={{ fontSize: 14, fontWeight: 700, marginTop: -8, color: COLORS.secondary }}>
+                            <h5 className='secondary-color' style={{ fontSize: 14, fontWeight: 700, marginTop: -8 }}>
                                 20,000.00 MT
                             </h5>
                             <button style={{ borderRadius: 5, fontSize: 12, fontWeight: 600, letterSpacing: 0.2 }} type="button" className="d-none btn btn-primary">
@@ -125,7 +125,7 @@ export default function JobDetails(params) {
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
                                 size="small" variant="outlined">
-                                <MoreHorizIcon />
+                                <MoreHorizIcon className='plainIcon' />
                             </IconButton>
                             <Menu
                                 id="basic-menu"
