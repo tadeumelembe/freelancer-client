@@ -4,13 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import styled, { ThemeProvider } from 'styled-components'
 
-import {Header} from './Components/Header'
+import './App.css';
+import { Header } from './Components/Header'
 import Jobs from './Views/Jobs';
 import JobDetails from './Views/JobDetails';
 import Home from './Views/Home';
+import NavBar from './Components/NavBar';
 
-import {lightTheme, darkTheme, GlobalStyles} from './Components/Styles/Theme'
+import { lightTheme, darkTheme, GlobalStyles } from './Components/Styles/Theme'
 import { UseDarkProvider, DarkModeContext } from './Components/Context/DarkModeContext';
+import { UserContext, UserProvider } from './Components/Context/UserContext';
+
+
+
 
 const MainDiv = styled.div`
 
@@ -21,22 +27,31 @@ const MainDiv = styled.div`
 function App() {
 
   const darkModeValue = UseDarkProvider();
+  const userContextValue = UserProvider
+
 
   return (
-    <ThemeProvider theme={darkModeValue.theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      
-      <MainDiv>
-        <DarkModeContext.Provider value={darkModeValue}>
-          <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="jobs" element={<Jobs />} />
-          <Route path="jobs/:jobId" element={<JobDetails />} />
-        </Routes>
-        </DarkModeContext.Provider>
+    <ThemeProvider theme={darkModeValue.darkTheme === 'light' ? lightTheme : darkTheme}>
 
-      </MainDiv>
+      <GlobalStyles />
+
+      <UserContext.Provider value={userContextValue}>
+        <MainDiv>
+
+          <DarkModeContext.Provider value={darkModeValue}>
+            <NavBar />
+
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="jobs" element={<Jobs />} />
+              <Route path="jobs/:jobId" element={<JobDetails />} />
+            </Routes>
+
+          </DarkModeContext.Provider>
+
+        </MainDiv>
+      </UserContext.Provider>
+
     </ThemeProvider>
   );
 }

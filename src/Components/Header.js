@@ -41,18 +41,18 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export const Header = () => {
-    const { theme, toggleTheme } = useContext(DarkModeContext)
+    const { darkTheme, toggleDarkTheme } = useContext(DarkModeContext)
     const [ checked, setChecked ] = useState(false)
 
     useEffect(() => {
 
-        if (theme === 'light') {
+        if (darkTheme === 'light') {
             setChecked(false)
         } else {
             setChecked(true)
         }   
 
-      }, [theme])
+      }, [darkTheme])
 
     return (
         <div>
@@ -81,7 +81,7 @@ export const Header = () => {
                         <Nav>
                             
                                 <AntSwitch
-                                    checked={checked} onChange={toggleTheme}
+                                    checked={checked} onChange={toggleDarkTheme}
                                     inputProps={{ "aria-label": "ant design" }}
                                 />
 

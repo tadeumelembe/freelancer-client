@@ -9,11 +9,13 @@ export const lightTheme = {
     longText:'rgba(0, 0, 0, 0.87)',
     title:  COLORS.primary,
     normalTitle: '#000000',
+    card:'rgba(255,255,255)',
+    menuCard:'rgba(255,255,255)',
     cardShadow: "0px 0px 2px #ededed",
     header: '#fff',
     headerBoxShadow: "0px 0px 5px #ededed",
     skillsCardBg: '#d3d3d3',
-    plainIcon:'#0000008a'
+    plainIcon:'#00000099'
     // your colors
 }
 
@@ -25,6 +27,7 @@ export const darkTheme = {
     normalTitle:  '#ffffff',
     longText: 'rgba(255,255,255,0.8)', //209b46, 6db784, 14A800
     card:'rgba(255,255,255,0.08)',
+    menuCard:'#363636',
     cardShadow: "0px 0px 2px #252525",
     header: 'rgba(255,255,255,0.08)',
     headerBoxShadow: "0px 0px 1.3px rgba(255,255,255,0.8)",
@@ -40,12 +43,18 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
     }
-    sc-bdvvtL, .card {
+    sc-bdvvtL, .card, .dropdown-card {
         background-color: ${(props) => props.theme.card};
         box-shadow: ${(props)=>props.theme.cardShadow};
         border: none;
     }
+    .dropdown-menu-card, .MuiPaper-root{
+        background-color: ${(props) => props.theme.menuCard}!important;
+    }
     p{
+        color: ${(props)=>props.theme.longText};
+    }
+    .text-color{
         color: ${(props)=>props.theme.longText};
     }
     .jobTitle{
@@ -55,7 +64,7 @@ export const GlobalStyles = createGlobalStyle`
         color: ${(props)=>props.theme.normalTitle}
     }
     .navbar{
-        background-color: ${(props) => props.theme.header};
+        background-color: ${(props) => props.theme.header}!important;
         box-shadow: ${(props) => props.theme.headerBoxShadow};
         color: ${(props) => props.theme.text}!important;
     }

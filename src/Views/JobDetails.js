@@ -110,11 +110,7 @@ export default function JobDetails(params) {
                             <h5 className='secondary-color' style={{ fontSize: 14, fontWeight: 700, marginTop: -8 }}>
                                 20,000.00 MT
                             </h5>
-                            <button style={{ borderRadius: 5, fontSize: 12, fontWeight: 600, letterSpacing: 0.2 }} type="button" className="d-none btn btn-primary">
-                                <span className='px-1'> Send Proposal</span>
-                            </button>
-
-                            <Button size="small" style={{ borderRadius: 5, backgroundColor: COLORS.primary, marginRight: 10, textTransform: 'unset' }} variant="contained">
+                            <Button size="small" style={{ borderRadius: 5, backgroundColor: COLORS.primary, marginRight: 10, textTransform: 'unset' }} disableElevation variant="contained">
                                 <span style={{ borderRadius: 5, fontSize: 12, fontWeight: 600, letterSpacing: 0.2 }} className='px-1'> Send Proposal</span>
                             </Button>
 
